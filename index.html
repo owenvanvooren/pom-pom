@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pom-pom: a minimal pomodoro timer for iOS</title>
+    <style>
+        @font-face {
+            font-family: "metrify standard vf";
+            src: url("/assets/fonts/metrify-standard-vf.woff2") format("woff2"),
+                url("/assets/fonts/metrify-standard-vf.woff") format("woff");
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "metrify compressed";
+            src: url("/assets/fonts/metrify-compressed.woff2") format("woff2"),
+                url("/assets/fonts/metrify-compressed.woff") format("woff");
+            font-weight: 700 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: "metrify gigawide";
+            src: url("/assets/fonts/metrify-gigawide.woff2") format("woff2"),
+                url("/assets/fonts/metrify-gigawide.woff") format("woff");
+            font-weight: 400 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --agave: #14DECD;
+            --blueberry: #4690FF;
+            --cherry: #FF5454;
+            --banana: #F2D016;
+            --coconut: #FFFFFF;
+            --bg: #ffffff;
+            --text: #000000;
+            --secondary: #888888;
+            --tertiary: #AAAAAA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: "metrify standard vf", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+
+        body::selection {
+            background: var(--agave);
+            color: var(--coconut);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg);
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        #header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 95%;
+        }
+
+        #header-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            line-height: 0.8;
+            font-size: clamp(48px, 10vw + 8px, 88px);
+            transition: font-size 0.2s ease-out;
+            margin-top: 24px;
+        }
+
+        #logo {
+            width: auto;
+            height: clamp(28px, 5vw + 18px, 52px);
+            margin-top: 4px;
+            transition: height 0.2s ease-out;
+        }
+
+        #logo {
+            color: var(--text);
+        }
+
+        #hero {
+            margin-top: 200px;
+            font-family: "metrify standard vf";
+            font-weight: 800;
+            font-size: clamp(3rem, 18vw, 6rem);
+            line-height: 1.1;
+            text-align: left;
+            padding-left: 24px;
+        }
+
+        #cherry-text {
+            color: var(--cherry);
+        }
+
+        #blueberry-text {
+            color: var(--blueberry);
+        }
+
+        #banana-text {
+            color: var(--banana);
+        }
+
+        #subhero {
+            margin-top: 20px;
+            max-width: 500px;
+            font-weight: 500;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--secondary);
+            line-height: 1.6;
+            text-align: left;
+            padding: 0 24px;
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            margin-top: auto;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            color: var(--tertiary);
+        }
+
+        @media (max-width: 600px) {
+            #header-container {
+                padding: 0 16px;
+            }
+
+            #logo {
+                max-height: clamp(36px, 5vw, 52px);
+                margin-top: 2px;
+                margin-right: -4px;
+            }
+
+            #hero {
+                margin-top: 120px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text: #ffffff;
+                --secondary: #777777;
+                --tertiary: #444444;
+                --agave: #2BE9DA;
+                --blueberry: #66A3FF;
+                --cherry: #FF6363;
+                --banana: #FDE03C;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="header-container">
+            <div id="header-content">
+                <svg width="559px" height="553px" viewBox="0 0 559 553" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" id="logo" role="img" aria-labelledby="title">
+                    <title>pom-pom</title>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="icon-copy-4" transform="translate(-232, -235)" fill="currentColor" fill-rule="nonzero">
+                            <path
+                                d="M520.635751,236.276183 C555.361646,239.982568 583.451466,265.280632 591.295611,298.560776 L591.48857,299.411823 L592.513566,298.641652 C624.579261,274.922887 669.893899,277.814361 698.663014,306.748018 L699.605412,307.711308 C723.824573,332.871939 729.081342,370.307168 713.698241,400.843356 L713.299397,401.618642 L714.579262,401.688198 C754.389138,404.130001 787.243561,435.472687 790.683786,476.129584 L790.786514,477.473269 C793.166526,512.315207 773.130543,544.371242 741.71812,557.875253 L740.913376,558.214384 L741.849968,559.088749 C770.776542,586.548574 775.797799,631.676879 752.299415,665.033203 L751.514405,666.128558 C730.941634,694.348874 694.987958,706.026339 662.244436,696.179496 L661.409394,695.922092 L661.565417,697.193838 C666.073622,736.822927 640.912214,774.620817 601.470375,785.068773 L600.164941,785.403269 C566.265615,793.797363 531.217372,779.632243 512.463807,751.041993 L511.988784,750.30682 L511.291642,751.382559 C489.272041,784.638021 445.701268,797.419443 408.77125,780.070317 L407.55622,779.487439 C376.19221,764.127621 358.448861,730.747933 362.460256,696.791972 L362.568174,695.924889 L361.343414,696.299407 C323.099221,707.620642 281.506333,689.405027 264.368102,652.376667 L263.812001,651.14915 C249.658877,619.22245 257.522733,582.246921 282.42211,558.81362 L283.061396,558.218579 L281.883174,557.718402 C245.309273,541.808078 225.156045,501.118714 235.828769,461.737101 L236.191803,460.439315 C245.871968,426.884591 275.663443,403.614481 309.800109,401.668543 L310.671179,401.624235 L310.091252,400.483135 C292.300978,364.78587 303.017328,320.661763 336.507122,297.353992 L337.619423,296.593184 C366.603421,277.111064 404.382753,278.434717 431.783781,298.886667 L432.479209,299.413221 L432.768775,298.165736 C442.188786,258.958511 479.465087,231.881932 520.635751,236.276183 Z"
+                                id="Combined-Shape"></path>
+                        </g>
+                    </g>
+                </svg>
+                <span>pom-pom</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="hero">
+            <b id="cherry-text">lock in.</b><br>
+            <b id="blueberry-text">tune out.</b><br>
+            <b id="banana-text">press on.</b>
+        </div>
+
+        <div id="subhero">
+            a minimal pomodoro timer app for iOS, with a refreshingly minimal design.
+        </div>
+    </main>
+
+    <footer>made by owen van vooren</footer>
+</body>
+
+</html>
