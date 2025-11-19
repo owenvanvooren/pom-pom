@@ -38,9 +38,11 @@
             --blueberry: #4690FF;
             --cherry: #FF5454;
             --banana: #F2D016;
+            --lavender: #7086FF;
             --coconut: #FFFFFF;
-            --bg: #ffffff;
+            --bg: #FFFFFF;
             --text: #000000;
+            --primary: #444444;
             --secondary: #888888;
             --tertiary: #AAAAAA;
         }
@@ -75,6 +77,12 @@
             color: var(--coconut);
         }
 
+        b, strong, #header-content, #hero {
+            font-style: normal !important;
+            font-variation-settings: "slnt" 0, "ital" 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
         header {
             position: fixed;
             top: 0;
@@ -102,6 +110,7 @@
             transition: font-size 0.2s ease-out;
             margin-top: 12px;
             margin-bottom: 24px;
+            color: var(--lavender);
         }
 
         #logo {
@@ -109,10 +118,7 @@
             height: clamp(28px, 5vw + 12px, 52px);
             margin-top: 4px;
             transition: height 0.2s ease-out;
-        }
-
-        #logo {
-            color: var(--text);
+            color: var(--lavender);
         }
 
         #hero {
@@ -427,14 +433,17 @@
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #000000;
-                --text: #ffffff;
-                --secondary: #777777;
-                --tertiary: #444444;
                 --agave: #2BE9DA;
                 --blueberry: #66A3FF;
                 --cherry: #FF6363;
                 --banana: #FDE03C;
+                --lavender: #8295FF;
+                --coconut: #E0E0E0;
+                --bg: #000000;
+                --text: #FFFFFF;
+                --primary: #EEEEEE;
+                --secondary: #DDDDDD;
+                --tertiary: #AAAAAA;
             }
         }
     </style>
@@ -459,7 +468,6 @@
             </div>
         </div>
     </header>
-
     <main>
         <div id="hero">
             <b id="cherry-text">lock in.</b><br>
