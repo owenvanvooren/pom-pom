@@ -100,12 +100,13 @@
             line-height: 0.8;
             font-size: clamp(48px, 10vw + 8px, 88px);
             transition: font-size 0.2s ease-out;
-            margin-top: 24px;
+            margin-top: 12px;
+            margin-bottom: 24px;
         }
 
         #logo {
             width: auto;
-            height: clamp(28px, 5vw + 18px, 52px);
+            height: clamp(28px, 5vw + 12px, 52px);
             margin-top: 4px;
             transition: height 0.2s ease-out;
         }
@@ -136,6 +137,12 @@
             color: var(--banana);
         }
 
+        main {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
         #subhero {
             margin-top: 20px;
             max-width: 500px;
@@ -147,13 +154,203 @@
             padding: 0 24px;
         }
 
-        footer {
-            position: relative;
-            bottom: 0;
-            margin-top: auto;
-            padding: 40px 0;
-            font-size: 0.9rem;
+        #features {
+            margin-top: 40px;
+            padding: 0 24px 32px;
+            text-align: left;
+        }
+
+        #features-title {
+            font-weight: 800;
+            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+            margin-bottom: 16px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .feature-card {
+            border-radius: 18px;
+            padding: 16px 18px;
+            border: 1px solid var(--tertiary);
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .feature-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             color: var(--tertiary);
+            font-family: "metrify gigawide", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .feature-body {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            line-height: 1.5;
+        }
+
+        #screenshots {
+            margin-top: 24px;
+            padding: 0 24px 56px;
+            text-align: left;
+        }
+
+        #screenshots-title {
+            font-weight: 800;
+            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+            margin-bottom: 16px;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            border: 1px solid var(--tertiary);
+            width: 100%;
+            max-width: 640px;
+            margin: 0 auto;
+            background:
+                radial-gradient(circle at 0% 0%, var(--agave) 0, transparent 55%),
+                radial-gradient(circle at 100% 0%, var(--blueberry) 0, transparent 60%),
+                radial-gradient(circle at 100% 100%, var(--cherry) 0, transparent 55%),
+                radial-gradient(circle at 0% 100%, var(--banana) 0, transparent 55%);
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            transition: transform 0.4s ease-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 22px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            background: transparent;
+        }
+
+        .carousel-screen {
+            max-width: 260px;
+            margin: 0 auto;
+            color: var(--coconut);
+            overflow: hidden;
+        }
+
+        .carousel-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 22px;
+            opacity: 0;
+            transform: translateY(16px) scale(0.98);
+            filter: blur(10px);
+            transition: opacity 0.55s ease-out, transform 0.55s ease-out, filter 0.55s ease-out;
+        }
+
+        .carousel-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .carousel-timer {
+            font-family: "metrify gigawide", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .carousel-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            opacity: 0.85;
+        }
+
+        .carousel-caption {
+            font-size: 0.9rem;
+            color: var(--coconut);
+            max-width: 320px;
+            text-align: center;
+            margin: 10px auto 0;
+            opacity: 0;
+            transform: translateY(22px) scale(0.97);
+            filter: blur(12px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 0.6s ease-out;
+        }
+
+        .carousel-slide.is-active .carousel-screen img,
+        .carousel-slide.is-active .carousel-caption {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        .carousel-slide.is-active .carousel-caption {
+            transition-delay: 0.08s;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding: 10px 20px 18px;
+        }
+
+        .carousel-arrows {
+            display: flex;
+            gap: 8px;
+        }
+
+        .carousel-button {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--coconut);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .carousel-button:active {
+            transform: translateY(1px);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            width: 16px;
+            background: var(--coconut);
         }
 
         @media (max-width: 600px) {
@@ -167,8 +364,64 @@
                 margin-right: -4px;
             }
 
-            #hero {
-                margin-top: 120px;
+            #features {
+                margin-top: 32px;
+            }
+
+            .carousel-slide {
+                padding: 18px 16px 18px;
+            }
+
+            .carousel-screen {
+                max-width: 230px;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text: #ffffff;
+                --secondary: #777777;
+                --tertiary: #444444;
+                --agave: #2BE9DA;
+                --blueberry: #66A3FF;
+                --cherry: #FF6363;
+                --banana: #FDE03C;
+            }
+
+            .feature-card {
+                background: rgba(255, 255, 255, 0.02);
+            }
+
+            .carousel {
+                border-color: #333333;
+            }
+        }
+
+        footer {
+            position: relative;
+            bottom: 0;
+            margin-top: auto;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            color: var(--tertiary);
+        }
+
+        footer a {
+            color: var(--agave);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            #header-container {
+                padding: 0 16px;
+            }
+
+            #logo {
+                max-height: clamp(36px, 5vw, 52px);
+                margin-top: 2px;
+                margin-right: -4px;
             }
         }
 
@@ -215,11 +468,212 @@
         </div>
 
         <div id="subhero">
-            a minimal pomodoro timer app for iOS, with a refreshingly minimal design.
+            pom-pom is a unique pomodoro timer app for iOS, with a refreshingly minimal design.
         </div>
+
+        <section id="features">
+            <div id="features-title">built for effortless focus</div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-label">design</div>
+                    <div class="feature-title">ultra-minimal interface</div>
+                    <div class="feature-body">a simple, typography-based UI brings focus and clarity to simple timer
+                        interactions.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-label">flow</div>
+                    <div class="feature-title">pomodoro flow</div>
+                    <div class="feature-body">pom-pom smoothly glides between focus and break states, so you can stay
+                        locked in for longer.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-label">integration</div>
+                    <div class="feature-title">ready for your workflow</div>
+                    <div class="feature-body">start a pom-pom timer with Siri or jump into a session from the home
+                        screen widget without ever opening the app.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-label">automation</div>
+                    <div class="feature-title">flows that follow you</div>
+                    <div class="feature-body">create focus automations with Shortcuts and keep an eye on session
+                        progress in real-time with Live Activities.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="screenshots">
+            <div id="screenshots-title">See pom-pom in action</div>
+            <div class="carousel" aria-roledescription="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide" aria-hidden="false">
+                        <div class="carousel-screen">
+                            <img src="/assets/interface/home.png"
+                                alt="pom-pom home screen showing quick access to timers and options">
+                        </div>
+                        <p class="carousel-caption">quickly access pom-pom features with a minimal, intuitive home
+                            screen.</p>
+                    </div>
+                    <div class="carousel-slide" aria-hidden="true">
+                        <div class="carousel-screen">
+                            <img src="/assets/interface/timer-running-app.png" alt="pom-pom running focus timer on iOS">
+                        </div>
+                        <p class="carousel-caption">start, pause, and stop your session with ease.</p>
+                    </div>
+                    <div class="carousel-slide" aria-hidden="true">
+                        <div class="carousel-screen">
+                            <img src="/assets/interface/options.png" alt="pom-pom options screen">
+                        </div>
+                        <p class="carousel-caption">easily adjust your pomodoro settings to your liking.</p>
+                    </div>
+                    <div class="carousel-slide" aria-hidden="true">
+                        <div class="carousel-screen">
+                            <img src="/assets/interface/about.png" alt="pom-pom about screen">
+                        </div>
+                        <p class="carousel-caption">get info on pom-pom's timer features and how it supports a more
+                            balanced workflow.</p>
+                    </div>
+                    <div class="carousel-slide" aria-hidden="true">
+                        <div class="carousel-screen">
+                            <img src="/assets/interface/timer-running-widget.png"
+                                alt="pom-pom timer widget on the home screen">
+                        </div>
+                        <p class="carousel-caption">keep track of your focus sessions right from your home screen
+                            widget.</p>
+                    </div>
+                    <div class="carousel-slide" aria-hidden="true">
+                        <div class="carousel-screen">
+                            <img src="/assets/interface/timer-running-la.png"
+                                alt="pom-pom timer running on the iOS Lock Screen with Live Activities">
+                        </div>
+                        <p class="carousel-caption">check on your timer whenever, even when your device is locked thanks
+                            to Live Activity support.</p>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <div class="carousel-arrows">
+                        <button class="carousel-button carousel-prev" aria-label="Previous screenshot">&lt;</button>
+                        <button class="carousel-button carousel-next" aria-label="Next screenshot">&gt;</button>
+                    </div>
+                    <div class="carousel-dots" role="tablist">
+                        <button class="carousel-dot active" aria-label="Go to slide 1"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 4"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 5"></button>
+                        <button class="carousel-dot" aria-label="Go to slide 6"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>made by owen van vooren</footer>
+    <footer>made by <a href="https://owen.uno/">owen van vooren</a><br>&copy; 2025 all rights reserved.</footer>
+
+    <script>
+        (function () {
+            var carousel = document.querySelector('.carousel');
+            var track = document.querySelector('.carousel-track');
+            if (!carousel || !track) return;
+
+            var slides = Array.prototype.slice.call(track.children);
+            var prevButtons = document.querySelectorAll('.carousel-prev');
+            var nextButtons = document.querySelectorAll('.carousel-next');
+            var dotGroups = document.querySelectorAll('.carousel-dots');
+            if (!slides.length || !dotGroups.length) return;
+
+            var index = 0;
+
+            function updateCarousel(newIndex) {
+                if (!slides.length) return;
+                index = (newIndex + slides.length) % slides.length;
+                var offset = -index * 100;
+                track.style.transform = 'translateX(' + offset + '%)';
+
+                slides.forEach(function (slide, i) {
+                    slide.setAttribute('aria-hidden', i !== index);
+                    if (i === index) {
+                        slide.classList.add('is-active');
+                    } else {
+                        slide.classList.remove('is-active');
+                    }
+                });
+
+                dotGroups.forEach(function (group) {
+                    var dots = group.querySelectorAll('.carousel-dot');
+                    dots.forEach(function (dot, dotIndex) {
+                        dot.classList.toggle('active', dotIndex === index);
+                    });
+                });
+            }
+
+            prevButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    updateCarousel(index - 1);
+                });
+            });
+
+            nextButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    updateCarousel(index + 1);
+                });
+            });
+
+            dotGroups.forEach(function (group) {
+                var dots = group.querySelectorAll('.carousel-dot');
+                dots.forEach(function (dot, dotIndex) {
+                    dot.addEventListener('click', function () {
+                        updateCarousel(dotIndex);
+                    });
+                });
+            });
+
+            var startX = 0;
+            var currentX = 0;
+            var isDragging = false;
+
+            function onTouchStart(e) {
+                if (!e.touches || e.touches.length === 0) return;
+                startX = e.touches[0].clientX;
+                currentX = startX;
+                isDragging = true;
+            }
+
+            function onTouchMove(e) {
+                if (!isDragging || !e.touches || e.touches.length === 0) return;
+                currentX = e.touches[0].clientX;
+                var deltaX = currentX - startX;
+                var width = carousel.offsetWidth || 1;
+                var percentage = (deltaX / width) * 100;
+                var offset = -index * 100 + percentage;
+                track.style.transition = 'none';
+                track.style.transform = 'translateX(' + offset + '%)';
+            }
+
+            function onTouchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                var deltaX = currentX - startX;
+                var width = carousel.offsetWidth || 1;
+                var swipeThreshold = width * 0.15;
+                track.style.transition = '';
+
+                if (deltaX > swipeThreshold) {
+                    updateCarousel(index - 1);
+                } else if (deltaX < -swipeThreshold) {
+                    updateCarousel(index + 1);
+                } else {
+                    updateCarousel(index);
+                }
+            }
+
+            carousel.addEventListener('touchstart', onTouchStart, { passive: true });
+            carousel.addEventListener('touchmove', onTouchMove, { passive: true });
+            carousel.addEventListener('touchend', onTouchEnd);
+            carousel.addEventListener('touchcancel', onTouchEnd);
+
+            updateCarousel(0);
+        })();
+    </script>
 </body>
 
 </html>
